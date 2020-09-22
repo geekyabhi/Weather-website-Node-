@@ -7,22 +7,26 @@ const message2=document.querySelector('#message-2')
 const message3=document.querySelector('#message-3')
 const message4=document.querySelector('#message-4')
 const message5=document.querySelector('#message-5')
-
+const loader=document.querySelector('#loader-1')
+const othermsz=document.querySelector('.msz')
 
 weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault()
 
     const location=search.value
     // console.log(location)
-
+    othermsz.style.visibility="hidden"
+    loader.style.display="inline-block"
     message1.textContent="Loading....."
-    message2.textContent="Temperature....."
-    message3.textContent="Wind Speed....."
-    message4.textContent="Humidity....."
-    message5.textContent="Address....."
+    message2.textContent=""
+    message3.textContent=""
+    message4.textContent=""
+    message5.textContent=""
 
     fetch('/weather?address='+location).then((response)=>{
     response.json().then((data)=>{
+        loader.style.display="none"
+        othermsz.style.visibility="visible"
         if(data.error){
            message1.textContent=data.error
         }else{
