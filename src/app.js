@@ -4,7 +4,7 @@ const hbs=require('hbs')
 const geocode=require('./utils/geocode')
 const weather=require('./utils/weather')
 
-const port=process.env.PORT||3000
+const port=process.env.PORT || 3000
 console.log(__dirname)
 console.log(path.join(__dirname,'../public'))
 const app=express()
@@ -56,7 +56,7 @@ app.get('/weather',(req,res)=>{
         if(error){
             return res.send({error:error})
         }
-        weather(lattitude,longitude,(error,{maxtemp,wind}={})=>{
+        weather(lattitude,longitude,(error,{maxtemp,wind,humidity}={})=>{
             if(error){
                 return res.send({error:error})
             }
@@ -64,7 +64,8 @@ app.get('/weather',(req,res)=>{
                 maxtemp:maxtemp,
                 wind:wind,
                 location:location,
-                address:req.query.address
+                address:req.query.address,
+                humidity:humidity
             })
         })
     })

@@ -16,6 +16,12 @@ body{
 .para{
     font-size: 20px;
 }
+.abt{
+    font-size: 20px;
+    word-spacing: 2px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
 footer{
     color: #888888;
     border-top:1px solid #eeeeee ;

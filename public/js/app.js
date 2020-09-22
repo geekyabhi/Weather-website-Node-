@@ -6,6 +6,7 @@ const message1=document.querySelector('#message-1')
 const message2=document.querySelector('#message-2')
 const message3=document.querySelector('#message-3')
 const message4=document.querySelector('#message-4')
+const message5=document.querySelector('#message-5')
 
 
 weatherForm.addEventListener('submit',(e)=>{
@@ -17,8 +18,8 @@ weatherForm.addEventListener('submit',(e)=>{
     message1.textContent="Loading....."
     message2.textContent="Temperature....."
     message3.textContent="Wind Speed....."
-    message4.textContent="Address....."
-
+    message4.textContent="Humidity....."
+    message5.textContent="Address....."
 
     fetch('/weather?address='+location).then((response)=>{
     response.json().then((data)=>{
@@ -28,7 +29,8 @@ weatherForm.addEventListener('submit',(e)=>{
             message1.textContent=data.location
             message2.textContent="Temperature  :  "+data.maxtemp
             message3.textContent="Wind Speed  :  "+data.wind
-            message4.textContent="Address  :  "+data.address
+            message4.textContent="Humidity  :  "+data.humidity
+            message5.textContent="Address  :  "+data.address
             // console.log(data.maxtemp)
             // console.log(data.wind)
             // console.log(data.address)

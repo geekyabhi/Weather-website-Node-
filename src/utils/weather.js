@@ -11,9 +11,11 @@ const weather=(lattitude,longitude,callback)=>{
             callback('Wrong input !!',undefined)
         }
         else{
+            console.log(response.body.list[0])
             callback(undefined,{
-                maxtemp:response.body.list[0].main.temp_max,
-                wind:response.body.list[0].wind.speed
+                maxtemp:response.body.list[0].main.temp,
+                wind:response.body.list[0].wind.speed,
+                humidity:response.body.list[0].main.humidity
             })
         }
     })
